@@ -17,7 +17,7 @@ def sujeto(detalles):
     for i in range(len(detalles)+1):
         palabra = detalles[0][i]
         if palabra[0].isupper():
-            detalles[1][i] = 'Sujeto'
+            detalles[1][i] = 'sujeto'
             return detalles
 
 def verbo(detalles):
@@ -88,12 +88,12 @@ def tokenize(oracion):
     print(oracion)
     print()
     for i in range(len(res[0])):
-        if (i ==0):  
-            print(f"{res[0][i]} -> {res[1][i]}")
+        if res[1][i] == 'sujeto':  
+            print(f"{res[0][i]} -> Es un {res[1][i]}")
         else:
             print(f"{res[0][i]} -> Es {res[1][i]} y su raíz es {res[2][i]}")
         
 
-oracion = 'Ellos jugaban canicas.'
+oracion = 'lloró José gatos'
 tokenize(oracion);
 
