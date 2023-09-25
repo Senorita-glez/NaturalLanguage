@@ -80,7 +80,6 @@ def sustantivo(detalles):
 
 def tokenize(oracion):
     res = eliminarCaracteres(oracion)
-    res = eliminarCaracteres(oracion)
     res = detalles(res)
     res = sujeto(res)
     res= verbo(res)
@@ -94,6 +93,6 @@ def tokenize(oracion):
             print(f"{res[0][i]} -> Es {res[1][i]} y su raíz es {res[2][i]}")
         
 
-oracion = 'lloró José gatos'
+oracion = 'lloró José gatos.'
 tokenize(oracion);
 
