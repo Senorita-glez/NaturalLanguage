@@ -75,7 +75,10 @@ def sustantivo(detalles):
                 cont =cont + 1
             else:
                 detalles[1][i] += 'género desconocido'
-            detalles[2][i] = palabra[:-cont]
+            if cont != 0:
+                detalles[2][i] = palabra[:-cont]
+            else: 
+                detalles[2][i] = 'la misma palabra'
     return detalles
 
 def tokenize(oracion):
@@ -93,6 +96,5 @@ def tokenize(oracion):
             print(f"{res[0][i]} -> Es {res[1][i]} y su raíz es {res[2][i]}")
         
 
-oracion = 'lloró José gatos.'
+oracion = 'hablabamos Nosotros morse'
 tokenize(oracion);
-
