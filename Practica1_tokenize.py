@@ -21,14 +21,14 @@ def sujeto(detalles):
             return detalles
 
 def verbo(detalles):
-    for i in range(len(detalles)+1):
+    for i in range(len(detalles)):
         palabra = detalles[0][i]
         if detalles[1][i] == '':
             if palabra[len(palabra)-1] in 'áéíóú':
                 detalles[1][i] = 'verbo pasado'
                 detalles[2][i] = palabra[:-1]
                 return detalles
-            elif palabra[-2:] == 'ar' or palabra[-2:] == 'er' or palabra[-2:] == 'ir':
+            elif palabra[-2:] == 'ar' or palabra[-2:] == 'er' or palabra[-2:] == 'ir' or palabra[-2:] == 'ír' or palabra[-2:] == 'ár' or palabra[-2:] == 'ér':
                 detalles[1][i] = 'verbo infinitivo'
                 detalles[2][i] = palabra[:-2]
                 return detalles
@@ -60,24 +60,24 @@ def verbo(detalles):
 def sustantivo(detalles):
     for i in range(len(detalles[0])):
         palabra = detalles[0][i]
-        cont = 0;
+        cont = 0
         if detalles[1][i] == '':
             if palabra[-1] == 's':
                 detalles[1][i] = 'plural '
-                cont =cont + 1
+                cont += 1
             else:
                 detalles[1][i] = 'singular '
             if palabra[-1] == 'o' or palabra[-2] == 'o':
                 detalles[1][i] += 'masculino'
-                cont =cont + 1
+                cont += 1
             elif palabra[-1] == 'a' or palabra[-2] == 'a':
                 detalles[1][i] += 'femenino'
-                cont =cont + 1
+                cont += 1
             else:
                 detalles[1][i] += 'género desconocido'
             if cont != 0:
                 detalles[2][i] = palabra[:-cont]
-            else: 
+            else:
                 detalles[2][i] = 'la misma palabra'
     return detalles
 
@@ -96,5 +96,5 @@ def tokenize(oracion):
             print(f"{res[0][i]} -> Es {res[1][i]} y su raíz es {res[2][i]}")
         
 
-oracion = 'hablabamos Nosotros morse'
+oracion = 'reír Pedro uvas'
 tokenize(oracion);
