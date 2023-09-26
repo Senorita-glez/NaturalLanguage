@@ -14,7 +14,7 @@ def detalles(cadena):
     return detalles
 
 def sujeto(detalles):
-    for i in range(len(detalles)+1):
+    for i in range(len(detalles)):
         palabra = detalles[0][i]
         if palabra[0].isupper():
             detalles[1][i] = 'sujeto'
